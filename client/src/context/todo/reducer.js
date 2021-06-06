@@ -8,9 +8,9 @@ export function todoReducer(state, action) {
       return { ...state, [action.payload.id]: action.payload };
     case TODO.REMOVE:
       return Object.keys(state).reduce(
-        (total, todo) => ({
+        (total, id) => ({
           ...total,
-          ...(action.payload !== todo && { [todo]: state[todo] }),
+          ...(action.payload !== Number(id) && { [id]: state[id] }),
         }),
         {}
       );

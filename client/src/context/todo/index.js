@@ -14,7 +14,6 @@ export const createTodo = (
   isComplete,
 });
 
-
 export const addTodo = (todo) => ({
   type: TODO.ADD,
   payload: todo,
@@ -27,7 +26,7 @@ export const editTodo = (todo) => ({
 
 export const removeTodo = (id) => ({
   type: TODO.REMOVE,
-  paylaod: id,
+  payload: id,
 });
 
 export const fetchTodo = (todo) => ({
@@ -38,4 +37,4 @@ export const fetchTodo = (todo) => ({
 export const fetchAllTodos = (todos) => ({
   type: TODO.GET_ALL,
   payload: todos,
-})
+});
