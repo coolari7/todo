@@ -1,11 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Modal } from "semantic-ui-react";
 
-export function Modal({ children }) {
+export function PortalModal({ children }) {
   return ReactDOM.createPortal(
-    <div className="ui dimmer modals visible active">
-      <div className="ui standard modal visible active">{children}</div>
-    </div>,
+    <Modal open>{children}</Modal>,
     document.querySelector("#modal")
   );
 }

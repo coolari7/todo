@@ -1,6 +1,7 @@
 import React from "react";
-import { useStore } from "../../../context";
-import { removeTodo } from "../../../context/todo";
+import { Button, Modal } from "semantic-ui-react";
+import { useStore } from "context";
+import { removeTodo } from "context/todo";
 
 export function TodoDelete({ todo, onDismiss }) {
   const [, dispatch] = useStore("todos");
@@ -12,16 +13,14 @@ export function TodoDelete({ todo, onDismiss }) {
 
   return (
     <React.Fragment>
-      <div className="inverted header">Delete Todo</div>
-      <div className="content">Are you sure you want to delete this todo?</div>
-      <div className="actions">
-        <button onClick={onClickDelete} className="ui button negative">
+      <Modal.Header>Delete Todo</Modal.Header>
+      <Modal.Content>Are you sure you want to delete this todo?</Modal.Content>
+      <Modal.Actions>
+        <Button negative onClick={onClickDelete}>
           Delete
-        </button>
-        <button onClick={onDismiss} className="ui button">
-          Cancel
-        </button>
-      </div>
+        </Button>
+        <Button onClick={onDismiss}>Cancel</Button>
+      </Modal.Actions>
     </React.Fragment>
   );
 }

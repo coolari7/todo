@@ -1,5 +1,6 @@
 import React from "react";
-import { useTheme } from "../../../context/theme";
+import { Button, Form, Header, Segment } from "semantic-ui-react";
+import { useTheme } from "context/theme";
 
 export function TodoForm({
   onSubmit,
@@ -18,20 +19,14 @@ export function TodoForm({
     onSubmit(title, description);
   };
 
-  const themedStyles = React.useMemo(
-    () => ({
-      segment: theme === "dark" ? "ui inverted segment" : "ui segment",
-      form: theme === "dark" ? "ui inverted form" : "ui form",
-    }),
-    [theme]
-  );
-
   return (
     <React.Fragment>
-      <h3 className="ui dividing header">{header}</h3>
-      <div className={themedStyles.segment}>
-        <form className={themedStyles.form} onSubmit={onFormSubmit}>
-          <div className="field">
+      <Header as="h3" dividing>
+        {header}
+      </Header>
+      <Segment inverted={theme === "dark"}>
+        <Form inverted={theme === "dark"} onSubmit={onFormSubmit}>
+          <Form.Field>
             <label htmlFor="title">Title</label>
             <input
               type="text"
@@ -39,8 +34,8 @@ export function TodoForm({
               value={title}
               onChange={setFormTitle}
             />
-          </div>
-          <div className="field">
+          </Form.Field>
+          <Form.Field>
             <label htmlFor="title">Description</label>
             <input
               type="text"
@@ -48,10 +43,10 @@ export function TodoForm({
               value={description}
               onChange={setFormDescription}
             />
-          </div>
-          <button className="ui button">{buttonText}</button>
-        </form>
-      </div>
+          </Form.Field>
+          <Button>{buttonText}</Button>
+        </Form>
+      </Segment>
     </React.Fragment>
   );
 }

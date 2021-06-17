@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useTheme } from "../../../context/theme";
-import { FlexContainer } from "../../Utility/FlexContainer";
-import { HoverDisplay } from "../../Utility/HoverDisplay";
+import { Checkbox, Icon, Segment } from "semantic-ui-react";
+import { useTheme } from "context/theme";
+import { FlexContainer } from "components/Utility/FlexContainer";
+import { HoverDisplay } from "components/Utility/HoverDisplay";
 
 export function Todo({ todo, onToggle, onClickDelete }) {
   const [theme] = useTheme();
@@ -11,7 +12,7 @@ export function Todo({ todo, onToggle, onClickDelete }) {
     () => ({
       segment: theme === "dark" ? "ui inverted segment" : "ui segment",
       color: {
-        color: theme === "dark" ? "white !important" : "initial",
+        color: theme === "dark" ? "white" : "initial",
       },
       icon: (icon) =>
         theme === "dark" ? `icon white ${icon}` : `icon grey ${icon}`,
@@ -20,35 +21,30 @@ export function Todo({ todo, onToggle, onClickDelete }) {
   );
 
   return (
-    <div className={themedStyles.segment}>
+    <Segment inverted={theme === "dark"}>
       <FlexContainer justifyContent="space-between">
-        <div className="ui checkbox">
-          <input
-            type="checkbox"
-            name="isComplete"
-            checked={todo.isComplete}
-            onChange={() => onToggle(todo)}
-          />
-          <label>
-            <span style={themedStyles.color}>
-              {todo.isComplete ? (
-                <s>{todo.title}</s>
-              ) : (
-                <span>{todo.title}</span>
-              )}
-            </span>
-          </label>
-        </div>
+        <Checkbox
+          checked={todo.isComplete}
+          onChange={() => onToggle(todo)}
+          label={{
+            children: (
+              <span style={themedStyles.color}>
+                {todo.isComplete ? <s>{todo.title}</s> : todo.title}
+              </span>
+            ),
+          }}
+        />
         <HoverDisplay style={{ flexGrow: 1, textAlign: "right" }}>
-          <Link to={`/todos/edit/${todo.id}`} className={themedStyles.color}>
-            <i className="icon white edit"></i>
+          <Link to={`/todos/edit/${todo.id}`}>
+            <Icon name="edit" inverted={theme === "dark"} />
           </Link>
-          <i
+          <Icon
+            inverted={theme === "dark"}
             onClick={() => onClickDelete(todo)}
-            className={themedStyles.icon("trash alternate")}
-          ></i>
+            name="trash alternate"
+          />
         </HoverDisplay>
       </FlexContainer>
-    </div>
+    </Segment>
   );
 }

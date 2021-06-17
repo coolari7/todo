@@ -16,7 +16,7 @@
 
 ## Steps
 
-- Decide on a ```Todo``` schema
+- Decide on a `Todo` schema
 
 ```javascript
 {
@@ -29,19 +29,18 @@
 }
 ```
 
-- Decide on a ```User``` schema
+- Decide on a `User` schema
 
 ```javascript
 {
   id: String, // Primary Key
   name: String,
   email: String,
-  joinedOn: Date,
   todos: Todo[], // Virtual
 }
 ```
 
-- Decide CSS Framework (will use [*semantic-ui*](https://semantic-ui.com/))
+- Decide CSS Framework (will use [_semantic-ui_](https://semantic-ui.com/))
 - Decide UI Layout
   - Use [cards](https://semantic-ui.com/views/card.html) for ToDos
   - Use [menu](https://semantic-ui.com/collections/menu.html#pointing) for Header

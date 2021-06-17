@@ -1,10 +1,10 @@
 import React from "react";
-import { useStore } from "../../../context";
-import { editTodo } from "../../../context/todo";
-import { NoTodos } from "../../Custom/NoTodos";
-import { Modal } from "../../Modal";
-import { Todo } from "../Todo";
-import { TodoDelete } from "../TodoDelete";
+import { useStore } from "context";
+import { editTodo } from "context/todo";
+import { NoTodos } from "components/Custom/NoTodos";
+import { PortalModal } from "components/Modal";
+import { Todo } from "components/Todos/Todo";
+import { TodoDelete } from "components/Todos/TodoDelete";
 
 export function TodoShow() {
   const [isOpenModal, setIsOpenModal] = React.useState(false);
@@ -30,12 +30,12 @@ export function TodoShow() {
     ));
 
   const renderModal = () => (
-    <Modal>
+    <PortalModal>
       <TodoDelete
         todo={todoBeingDeleted}
         onDismiss={() => setIsOpenModal(false)}
       />
-    </Modal>
+    </PortalModal>
   );
 
   const render = () =>

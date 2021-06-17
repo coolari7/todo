@@ -1,6 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 
-export function FlexContainer({
+function __FlexContainer({
   children,
   justifyContent = "center",
   alignItems = "center",
@@ -12,3 +12,5 @@ export function FlexContainer({
     </div>
   );
 }
+
+export const FlexContainer = memo(__FlexContainer);

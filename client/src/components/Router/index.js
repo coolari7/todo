@@ -1,22 +1,22 @@
 import React from "react";
-import { history } from "../history";
-import { Switch, Router, Route } from "react-router-dom";
-import { TodoShow } from "../Todos/TodoShow";
-import { TodoAdd } from "../Todos/TodoAdd";
-import { TodoEdit } from "../Todos/TodoEdit";
-import { Header } from "../Header";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
+import { TodoShow } from "components/Todos/TodoShow";
+import { TodoAdd } from "components/Todos/TodoAdd";
+import { TodoEdit } from "components/Todos/TodoEdit";
+import { Login } from "components/Login";
+import { PrivateRoute } from "components/Router/PrivateRoute";
 
 export function AppRouter() {
   return (
-    <Router history={history}>
+    <BrowserRouter>
       <div className="ui container">
-        <Header />
         <Switch>
-          <Route path="/" exact component={TodoShow} />
-          <Route path="/todos/new" component={TodoAdd} />
-          <Route path="/todos/edit/:id" component={TodoEdit}/>
+          <Route path="/login" exact component={Login} />
+          <PrivateRoute path="/" exact component={TodoShow} />
+          <PrivateRoute path="/todos/new" exact component={TodoAdd} />
+          <PrivateRoute path="/todos/edit/:id" exact component={TodoEdit} />
         </Switch>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
