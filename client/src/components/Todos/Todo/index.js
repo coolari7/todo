@@ -8,18 +8,6 @@ import { HoverDisplay } from "components/Utility/HoverDisplay";
 export function Todo({ todo, onToggle, onClickDelete }) {
   const [theme] = useTheme();
 
-  const themedStyles = React.useMemo(
-    () => ({
-      segment: theme === "dark" ? "ui inverted segment" : "ui segment",
-      color: {
-        color: theme === "dark" ? "white" : "initial",
-      },
-      icon: (icon) =>
-        theme === "dark" ? `icon white ${icon}` : `icon grey ${icon}`,
-    }),
-    [theme]
-  );
-
   return (
     <Segment inverted={theme === "dark"}>
       <FlexContainer justifyContent="space-between">
@@ -28,8 +16,13 @@ export function Todo({ todo, onToggle, onClickDelete }) {
           onChange={() => onToggle(todo)}
           label={{
             children: (
-              <span style={themedStyles.color}>
-                {todo.isComplete ? <s>{todo.title}</s> : todo.title}
+              <span
+                style={{
+                  color: theme === "dark" ? "white" : "initial",
+                  ...(todo.isComplete && { textDecoration: "line-through" }),
+                }}
+              >
+                {todo.title}
               </span>
             ),
           }}
