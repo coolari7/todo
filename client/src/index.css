@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-input {
+  @apply mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md;
+}
+
+.label {
+  @apply block text-sm font-medium text-gray-700;
+}
+
+.btn {
+  @apply bg-blue-600 text-white border font-medium text-sm px-4 py-2 rounded shadow hover:bg-blue-800;
+}

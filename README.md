@@ -49,10 +49,12 @@
 ## Next Steps
 
 1. Setup React Manually
-2. Typescript
-3. Server Side Rendering
-4. Responsive
-5. CICD Pipeline
-6. Feature Flags
-7. Animations
-8. Reddis Cache in the Backend
+2. Webpack/Babel
+3. SASS/PostCSS/StyleLint
+4. Typescript
+5. Server Side Rendering
+6. Responsive
+7. CICD Pipeline
+8. Feature Flags
+9. Animations
+10. Reddis Cache in the Backend
