@@ -20,6 +20,7 @@
 8. NO PATCH calls. PUT only.
 9. NO Mongoose.
 10. DB Hosted on Atlas
+11. Should use Error Boundaries
 
 ## Backend Planning
 
@@ -54,7 +55,8 @@
 4. Typescript
 5. Server Side Rendering
 6. Responsive
-7. CICD Pipeline
-8. Feature Flags
-9. Animations
-10. Reddis Cache in the Backend
+7. Immutable JS
+8. CICD Pipeline
+9. Feature Flags
+10. Animations
+11. Reddis Cache in the Backend

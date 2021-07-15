@@ -1,8 +1,8 @@
 import React from "react";
 
-export const TodoForm = () => {
+export function TodoForm() {
   return (
-    <form className="p-5 shadow-md bg-white rounded-sm grid grid-cols-1 gap-4">
+    <form className="p-5 shadow-md bg-blue-50 rounded-sm grid grid-cols-1 gap-4">
       <fieldset name="title">
         <label className="label" htmlFor="title">
           Enter Title
@@ -30,4 +30,4 @@ export const TodoForm = () => {
       </fieldset>
     </form>
   );
-};
+}
