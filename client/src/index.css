@@ -2,14 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-.text-input {
-  @apply mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md;
+@layer base {
+  abbr[title] {
+    @apply no-underline;
+  }
 }
 
-.label {
-  @apply block text-sm font-medium text-gray-700;
-}
+@layer components {
+  .text-input {
+    @apply mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md;
+  }
 
-.btn {
-  @apply bg-blue-600 text-white border font-medium text-sm px-4 py-2 rounded shadow hover:bg-blue-800;
+  .label {
+    @apply block text-sm font-medium text-gray-700;
+  }
+
+  .btn {
+    @apply bg-blue-600 text-white border font-medium text-sm px-4 py-2 rounded shadow hover:bg-blue-800;
+  }
+
+  .navlink {
+    @apply flex items-center sm:hover:text-blue-600;
+  }
+
+  .active {
+    @apply border-b-2 border-solid border-blue-700;
+  }
+
+  .dropdown {
+    @apply absolute mt-3 right-0 rounded-md shadow-lg w-56 bg-white z-10;
+  }
+
+  .dropdown-item {
+    @apply block px-4 py-2 w-full text-left text-sm text-gray-700 hover:bg-gray-100;
+  }
 }

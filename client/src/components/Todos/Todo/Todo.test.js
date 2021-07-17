@@ -1,6 +1,6 @@
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { Todo } from "components/Todo";
+import { Todo } from "components/Todos/Todo";
 import { App } from "components/App";
 
 describe("Todo", () => {

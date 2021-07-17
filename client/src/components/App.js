@@ -1,13 +1,13 @@
 import React from "react";
-import { TodoForm } from "./TodoForm";
-import { TodoList } from "./TodoList";
+import { AppRouter } from "components/AppRouter";
+import { TodoProvider } from "state/context/todo";
 
 export const App = () => {
   return (
-    <main className="sm:p-10">
-      <TodoList />
-      <div className="p-4"></div>
-      <TodoForm />
-    </main>
+    <React.Fragment>
+      <TodoProvider>
+        <AppRouter />
+      </TodoProvider>
+    </React.Fragment>
   );
 };

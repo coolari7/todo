@@ -6,7 +6,7 @@ const TodoContext = React.createContext();
 export function TodoProvider({ children }) {
   const [state, dispatch] = React.useReducer(todoReducer, INITIAL_STATE);
 
-  const provider = React.useMemo(() => [state, dispatch], [state, dispatch]);
+  const provider = React.useMemo(() => [state, dispatch], [state]);
 
   return (
     <TodoContext.Provider value={provider}>{children}</TodoContext.Provider>
