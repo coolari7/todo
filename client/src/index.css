@@ -6,11 +6,18 @@
   abbr[title] {
     @apply no-underline;
   }
+
+  [type="checkbox"]:focus,
+  [type="radio"]:focus {
+    outline: none;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-shadow: none;
+  }
 }
 
 @layer components {
   .text-input {
-    @apply mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md;
+    @apply mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm text-sm border-gray-300 rounded-md;
   }
 
   .label {
@@ -35,5 +42,13 @@
 
   .dropdown-item {
     @apply block px-4 py-2 w-full text-left text-sm text-gray-700 hover:bg-gray-100;
+  }
+
+  .screen-center {
+    @apply fixed top-12 sm:top-14 right-0 left-0 bottom-0;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center;
   }
 }

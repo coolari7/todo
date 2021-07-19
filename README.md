@@ -59,5 +59,6 @@
 8. CICD Pipeline
 9. Feature Flags
 10. Animations
+    1. Draggable Todos
 11. Reddis Cache in the Backend
 12. MongoDB transaction

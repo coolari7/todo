@@ -4,10 +4,8 @@ import { TodoProvider } from "state/context/todo";
 
 export const App = () => {
   return (
-    <React.Fragment>
-      <TodoProvider>
-        <AppRouter />
-      </TodoProvider>
-    </React.Fragment>
+    <TodoProvider>
+      <AppRouter />
+    </TodoProvider>
   );
 };
