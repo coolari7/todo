@@ -1,12 +1,9 @@
 import React from "react";
 
-export const LabelText = React.memo((props) => {
+export const LabelText = (props) => {
   return (
-    <span
-      data-testid="checkbox-label"
-      className={`label ${props.todo.isComplete ? "line-through" : ""}`}
-    >
+    <span className={`label ${props.todo.isComplete ? "line-through" : ""}`}>
       {props.todo.title}
     </span>
   );
-});
+};

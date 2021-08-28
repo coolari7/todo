@@ -50,15 +50,16 @@
 ## Next Steps
 
 1. Setup React Manually
-2. Webpack/Babel
-3. SASS/PostCSS/StyleLint
-4. Typescript
-5. Server Side Rendering
-6. Responsive
-7. Immutable JS
-8. CICD Pipeline
-9. Feature Flags
-10. Animations
-    1. Draggable Todos
-11. Reddis Cache in the Backend
-12. MongoDB transaction
+2. Session Management
+3. Webpack/Babel
+4. SASS/PostCSS/StyleLint
+5. Typescript
+6. Server Side Rendering
+7. Responsive
+8. Immutable JS
+9. CICD Pipeline
+10. Feature Flags
+11. Animations
+12. Draggable Todos
+13. Reddis Cache in the Backend
+14. MongoDB transaction

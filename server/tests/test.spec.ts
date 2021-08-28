@@ -1,3 +1,5 @@
+import { add } from "../src/utils/delete-this";
+
 it("Test", () => {
-  expect(1 + 1).toEqual(2);
+  expect(add(1, 2, 3, 5)).toEqual(11);
 });

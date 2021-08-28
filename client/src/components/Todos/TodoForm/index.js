@@ -18,35 +18,31 @@ export function TodoForm({
 
   return (
     <form
+      aria-label="todo-form"
       onSubmit={onFormSubmit}
       className="p-5 shadow-md bg-blue-50 rounded-sm grid grid-cols-1 gap-4"
     >
-      <fieldset name="title">
-        <label className="label" htmlFor="title">
-          Enter Title
-        </label>
+      <label className="label">
+        Enter Title
         <input
           type="text"
-          id="title"
+          name="title"
           value={title}
           onChange={setFormTitle}
           autoComplete="off"
           className="text-input"
         />
-      </fieldset>
-      <fieldset name="description">
-        <label className="label" htmlFor="description">
-          Enter Description
-        </label>
+      </label>
+      <label className="label">
+        Enter Description
         <textarea
-          type="text"
-          id="description"
+          name="description"
           value={description}
           onChange={setFormDescription}
           autoComplete="off"
           className="text-input"
         />
-      </fieldset>
+      </label>
       <fieldset>
         <button className="btn">{buttonText}</button>
       </fieldset>

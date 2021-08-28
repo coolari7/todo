@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
+import React from "react";
 import { renderChildren } from "utils/renderChildren";
+import { usePopup } from "hooks/usePopup";
 
 const MenuContext = React.createContext();
 
@@ -14,25 +15,9 @@ function useMenuContext() {
 }
 
 export function Menu({ children, ...props }) {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const ref = useRef();
+  const ref = React.useRef();
+  const value = usePopup(ref);
 
-  const onOutsideClick = React.useCallback(
-    (e) => {
-      if (ref.current && !ref.current.contains(e.target)) {
-        setIsOpen(false);
-      }
-    },
-    [ref]
-  );
-  const toggle = React.useCallback(() => {
-    if (!isOpen) {
-      document.addEventListener("mousedown", onOutsideClick, { once: true });
-    }
-    setIsOpen(!isOpen);
-  }, [isOpen, onOutsideClick]);
-
-  const value = React.useMemo(() => ({ isOpen, toggle }), [isOpen, toggle]);
   return (
     <MenuContext.Provider value={value}>
       <div ref={ref} {...props}>
@@ -43,27 +28,29 @@ export function Menu({ children, ...props }) {
 }
 
 function Button({ children }) {
-  const { toggle } = useMenuContext();
-  return (
-    <React.Fragment>
-      {renderChildren(children, { onClick: toggle })}
-    </React.Fragment>
-  );
+  const { isOpen, toggle } = useMenuContext();
+  const props = {
+    onClick: toggle,
+    "aria-haspopup": "menu",
+    ...(isOpen && { "aria-expanded": true }),
+  };
+
+  return <React.Fragment>{renderChildren(children, props)}</React.Fragment>;
 }
 
 function Items({ children, ...props }) {
   const { isOpen } = useMenuContext();
-  return isOpen ? <div {...props}>{children}</div> : null;
+  return isOpen ? (
+    <ul role="menu" {...props}>
+      {children}
+    </ul>
+  ) : null;
 }
 
 function Item({ children }) {
   const { toggle } = useMenuContext();
 
-  return (
-    <React.Fragment>
-      {renderChildren(children, { onClick: toggle })}
-    </React.Fragment>
-  );
+  return <li onClick={toggle}>{children}</li>;
 }
 
 Menu.Button = Button;

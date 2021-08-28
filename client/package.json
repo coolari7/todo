@@ -19,12 +19,19 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "cypress:open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:run:chrome": "cypress run --browser chrome",
+    "cy:run:firefox": "cypress run --browser firefox",
+    "cy:run:edge": "cypress run --browser edge",
+    "cy:run": "npm run cy:run:chrome && npm run cy:run:firefox && npm run cy:run:edge",
+    "e2e": "server-test :3000 cy:run"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:jest-dom/recommended",
+      "plugin:testing-library/react"
     ]
   },
   "browserslist": {
@@ -41,9 +48,14 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.3.3",
+    "@testing-library/cypress": "^8.0.0",
     "autoprefixer": "^9.8.6",
-    "cypress": "^7.7.0",
+    "cypress": "^8.1.0",
+    "eslint-plugin-jest-dom": "^3.9.0",
+    "eslint-plugin-testing-library": "^4.9.1",
+    "history": "^4.9.0",
     "postcss": "^7.0.36",
+    "start-server-and-test": "^1.13.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4"
   }
 }

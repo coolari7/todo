@@ -3,8 +3,8 @@ import { todoReducer, INITIAL_STATE } from "state/reducers/todo";
 
 const TodoContext = React.createContext();
 
-export function TodoProvider({ children }) {
-  const [state, dispatch] = React.useReducer(todoReducer, INITIAL_STATE);
+export function TodoProvider({ children, initial = INITIAL_STATE }) {
+  const [state, dispatch] = React.useReducer(todoReducer, initial);
 
   const provider = React.useMemo(() => [state, dispatch], [state]);
 

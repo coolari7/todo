@@ -17,3 +17,8 @@ export const editTodo = (todo) => ({
   type: TYPES.TODO.EDIT,
   payload: todo,
 });
+
+export const deleteTodo = (todo) => ({
+  type: TYPES.TODO.DELETE,
+  payload: todo.id,
+});

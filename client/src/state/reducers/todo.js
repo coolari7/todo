@@ -10,6 +10,16 @@ export const todoReducer = (state = INITIAL_STATE, action) => {
         ...state,
         [action.payload.id]: action.payload,
       };
+    case TYPES.TODO.DELETE:
+      return Object.keys(state).reduce(
+        (total, id) => ({
+          ...total,
+          ...(id !== action.payload && {
+            [id]: state[id],
+          }),
+        }),
+        {}
+      );
     default:
       return state;
   }
