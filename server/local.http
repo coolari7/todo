@@ -1,7 +1,16 @@
-POST http://localhost:8080/todos HTTP/1.1
+PUT http://localhost:8080/todos HTTP/1.1
 content-type: application/json
 
 {
-    "title": "Test Title by Arijit",
-    "description": "Test Description by Arijit"
+  "title": "Test Title by Arijit 2",
+  "description": "Test Description by Arijit (edited)"
+}
+
+###
+
+DELETE http://localhost:8080/todos HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": "8b9b4ced-308b-4cc0-9cdb-fb7b0b7a32d2"
 }
