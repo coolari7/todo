@@ -1,38 +1,21 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
 import { Avatar } from "components/common/Avatar";
 import { Bar } from "components/common/Icons/Bar";
-import { ROUTES_DATA } from "config/router-data";
 import { Menu } from "components/common/Menu";
+import { Tabs } from "./Tabs";
+import { useTabs } from "./useTabs";
 
 export function Header() {
-  const history = useHistory();
-  const [path, setPath] = React.useState(history.location.pathname);
-
-  React.useEffect(() => {
-    let unlisten = history.listen(({ pathname }) => setPath(pathname));
-    return () => {
-      unlisten();
-    };
-  }, [path, history]);
-
-  const renderLinks = ROUTES_DATA.map(({ name, href }) => (
-    <Link
-      key={href}
-      to={href}
-      className={`navlink ${path === href ? "active" : ""}`}
-    >
-      {name}
-    </Link>
-  ));
+  const path = useTabs();
+  const [open, setOpen] = React.useState(false);
 
   return (
     <nav className="flex h-12 sm:h-14 justify-between px-4 shadow-md text-sm">
       <section className="block sm:hidden my-auto">
-        <Bar className="cursor-pointer" />
+        <Bar onClick={() => setOpen(!open)} className="cursor-pointer" />
       </section>
-      <section className="hidden sm:flex gap-6 font-semibold">
-        {renderLinks}
+      <section className="hidden sm:block">
+        <Tabs path={path} />
       </section>
       <section className="my-auto">
         <Menu className="relative">

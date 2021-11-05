@@ -47,9 +47,7 @@ export function TodoList() {
 
   return (
     <React.Fragment>
-      <ul className="grid grid-cols-1 gap-4 list-none p-4 sm:shadow-md bg-blue-50">
-        {mapTodos()}
-      </ul>
+      <ul className="grid grid-cols-1 gap-4 list-none p-4">{mapTodos()}</ul>
       <Modal isOpen={isModalOpen} onClose={modalCancelClicked}>
         <Modal.Header>Delete Todo</Modal.Header>
         <Modal.Content>

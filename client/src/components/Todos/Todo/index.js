@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export function Todo({ todo, onToggle, onDelete }) {
   return (
-    <li className="flex justify-between sm:shadow-md bg-white p-2 rounded-full">
+    <li className="flex justify-between shadow-md bg-white p-2 rounded-full">
       <label className="inline-flex items-center ml-2">
         <input
           type="checkbox"
@@ -18,7 +18,7 @@ export function Todo({ todo, onToggle, onDelete }) {
         />
         <LabelText todo={todo} />
       </label>
-      <Menu className="relative">
+      <Menu className="relative inline-block">
         <Menu.Button>
           <button name="menubutton" className="block">
             <Dots className="cursor-pointer text-gray-600" fill="gray" />

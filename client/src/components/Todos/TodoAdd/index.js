@@ -13,5 +13,5 @@ export function TodoAdd() {
     history.push("/");
   };
 
-  return <TodoForm onSubmit={onSubmit} buttonText="Add" />;
+  return <TodoForm onSubmit={onSubmit} buttonText="Add Todo" />;
 }

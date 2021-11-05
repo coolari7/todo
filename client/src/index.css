@@ -17,7 +17,7 @@
 
 @layer components {
   .text-input {
-    @apply mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm text-sm border-gray-300 rounded-md;
+    @apply border-2 p-2 rounded-md outline-none;
   }
 
   .label {
@@ -29,11 +29,11 @@
   }
 
   .navlink {
-    @apply flex items-center sm:hover:text-blue-600;
+    @apply flex items-center gap-4 p-1 sm:p-0 sm:hover:text-blue-600;
   }
 
   .active {
-    @apply border-b-2 border-solid border-blue-700;
+    @apply bg-blue-100 sm:bg-transparent sm:border-b-2 border-solid border-blue-700;
   }
 
   .dropdown {
@@ -50,5 +50,13 @@
 
   .flex-center {
     @apply flex justify-center items-center;
+  }
+
+  .backdrop {
+    @apply bg-gray-500 bg-opacity-50;
+  }
+
+  .select {
+    @apply w-full text-left bg-white text-gray-500 border-2 border-gray-300 rounded-md font-normal p-2 text-sm;
   }
 }

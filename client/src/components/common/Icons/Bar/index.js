@@ -1,8 +1,9 @@
 import React from "react";
 
-export function Bar(props) {
+export function Bar({ onClick, ...props }) {
   return (
     <svg
+      onClick={onClick}
       xmlns="http://www.w3.org/2000/svg"
       height="24px"
       viewBox="0 0 24 24"

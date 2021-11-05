@@ -1,16 +1,18 @@
+import { Button } from "components/Lists/Button";
+import { Input } from "components/Lists/Input";
+import { Select } from "components/Lists/Select";
+import { TextArea } from "components/Lists/Textarea";
 import React from "react";
 
-export function TodoForm({
-  onSubmit,
-  todo = {},
-  buttonText = "Submit",
-  ...props
-}) {
+export function TodoForm({ onSubmit, todo = {}, buttonText = "Submit" }) {
+  const options = ["Grocery", "Daily", "Shopping", "Today"];
   const [title, setTitle] = React.useState(todo?.title ?? "");
   const [description, setDescription] = React.useState(todo?.description ?? "");
+  const [list, setList] = React.useState(options[0]);
 
   const setFormTitle = (e) => setTitle(e.target.value);
   const setFormDescription = (e) => setDescription(e.target.value);
+  const setFormList = (e) => setList(e.target.innerText);
   const onFormSubmit = (e) => {
     e.preventDefault();
     onSubmit(title, description);
@@ -20,31 +22,30 @@ export function TodoForm({
     <form
       aria-label="todo-form"
       onSubmit={onFormSubmit}
-      className="p-5 shadow-md bg-blue-50 rounded-sm grid grid-cols-1 gap-4"
+      className="p-5 grid grid-cols-1 gap-4"
     >
-      <label className="label">
-        Enter Title
-        <input
-          type="text"
-          name="title"
-          value={title}
-          onChange={setFormTitle}
-          autoComplete="off"
-          className="text-input"
-        />
-      </label>
-      <label className="label">
-        Enter Description
-        <textarea
-          name="description"
-          value={description}
-          onChange={setFormDescription}
-          autoComplete="off"
-          className="text-input"
-        />
-      </label>
-      <fieldset>
-        <button className="btn">{buttonText}</button>
+      <Input
+        required
+        minLength="10"
+        value={title}
+        onChange={setFormTitle}
+        label="Todo Title"
+        placeholder="Buy some milk..."
+      />
+      <TextArea
+        value={description}
+        onChange={setFormDescription}
+        label="Todo Description"
+        placeholder="But 2L of milk | Relatives arrival"
+      />
+      <Select
+        value={list}
+        options={options}
+        onChange={setFormList}
+        labelText="Select List"
+      />
+      <fieldset className="flex gap-2">
+        <Button type="submit">{buttonText}</Button>
       </fieldset>
     </form>
   );

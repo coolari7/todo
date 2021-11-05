@@ -7,7 +7,7 @@ export function NoTodos() {
     <main className="screen-center flex-center sm:block sm:px-20 sm:pt-16">
       <div className="font-bold text-gray-600">
         <h1 className="mb-3 sm:mb-5 text-4xl sm:text-5xl text-center sm:text-left">
-          Add some todos?
+          Add some lists?
         </h1>
         <Link
           to="/todos/add"

@@ -1,8 +1,8 @@
 import express from "express";
-import { BaseController } from "./controller/todo.controller";
+import { BaseController } from "./controller/base.controller";
 
 export class App {
-  private app = express();
+  public readonly app = express();
 
   constructor(controllers: [BaseController<any>, ...BaseController<any>[]]) {
     this.setupApp();
